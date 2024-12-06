@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #e6d5a7;
+            background-image: url('data:image/png;base64,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');
+        }
+
+        .container {
+            max-width: 1200px !important;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(144, 190, 109, 0.8) !important;
+            border-radius: 25px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control, .form-select {
+            background: rgba(108, 152, 132, 0.8) !important;
+            border: none !important;
+            color: white !important;
+            border-radius: 5px !important;
+            padding: 10px !important;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        label {
+            color: #2c3e50 !important;
+            font-family: 'Times New Roman', Times, serif !important;
+            font-size: 1.2em !important;
+        }
+
+        h1, h3 {
+            color: #2c3e50 !important;
+            font-family: 'Times New Roman', Times, serif !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: #4a6741 !important;
+            border: none !important;
+            padding: 8px 25px !important;
+            font-family: 'Times New Roman', Times, serif !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #3d5635 !important;
+            transform: translateY(-2px);
+        }
+
+        .error {
+            color: #721c24;
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Table Styles */
+        .table-container {
+            background: rgba(144, 190, 109, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table {
+            background: transparent !important;
+            margin: 0;
+        }
+
+        .table thead th {
+            background: rgba(74, 103, 65, 0.9) !important;
+            color: white !important;
+            font-family: 'Times New Roman', Times, serif !important;
+            font-weight: 600;
+            padding: 15px !important;
+            border: none !important;
+        }
+
+        .table tbody td {
+            background: rgba(255, 255, 255, 0.7) !important;
+            color: #2c3e50;
+            font-family: 'Times New Roman', Times, serif !important;
+            padding: 12px !important;
+            vertical-align: middle;
+            border: 1px solid rgba(74, 103, 65, 0.2) !important;
+        }
+
+        .table tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .table img {
+            max-width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(74, 103, 65, 0.5);
+        }
+
+        .table video {
+            max-width: 120px;
+            height: 80px;
+            border-radius: 8px;
+            border: 2px solid rgba(74, 103, 65, 0.5);
+        }
+
+        .btn-warning {
+            background: #d4a145 !important;
+            border: none !important;
+            color: white !important;
+            margin-right: 5px;
+            font-family: 'Times New Roman', Times, serif !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger {
+            background: #c54b4b !important;
+            border: none !important;
+            font-family: 'Times New Roman', Times, serif !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-warning:hover, .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn-warning:hover {
+            background: #b88a3a !important;
+        }
+
+        .btn-danger:hover {
+            background: #a83e3e !important;
+        }
+
+        input[type="file"] {
+            background: transparent !important;
+            padding: 5px 0;
+            color: #2c3e50 !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px !important;
+            }
+
+            .card {
+                width: 100% !important;
+            }
+
+            .table-responsive {
+                border-radius: 15px;
+                overflow: hidden;
+            }
+
+            .col-form-label {
+                text-align: left !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container p-5">
+        <h1 class="text-center mb-4">Student Management</h1>
+
+        <!-- Student Form -->
+        <div class="card w-75 mb-4 mx-auto">
+            <div class="card-body">
+                <form id="studentForm" method="post" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3 row">
+                        <label for="name" class="col-sm-4 col-form-label text-end">Name</label>
+                        <div class="col-sm-8">
+                            {{ form.name }}
+                            <div class="error" id="nameError"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="student_class" class="col-sm-4 col-form-label text-end">Class</label>
+                        <div class="col-sm-8">
+                            {{ form.student_class }}
+                            <div class="error" id="classError"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="photo" class="col-sm-4 col-form-label text-end">Photo</label>
+                        <div class="col-sm-8">
+                            {{ form.photo }}
+                            <div class="error" id="photoError"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 row">
+                        <label for="video" class="col-sm-4 col-form-label text-end">Video</label>
+                        <div class="col-sm-8">
+                            {{ form.video }}
+                            <div class="error" id="videoError"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Students Table -->
+        <div class="table-container">
+            <h3 class="mb-3 text-center">Students List</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Photo</th>
+                            <th>Video</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td data-label="Name">{{ student.name }}</td>
+                            <td data-label="Class">{{ student.student_class }}</td>
+                            <td data-label="Photo">
+                                {% if student.photo %}
+                                    <img src="{{ student.photo.url }}" alt="Photo">
+                                {% else %}
+                                    <span class="text-muted">No photo</span>
+                                {% endif %}
+                            </td>
+                            <td data-label="Video">
+                                {% if student.video %}
+                                    <video controls>
+                                        <source src="{{ student.video.url }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                {% else %}
+                                    <span class="text-muted">No video</span>
+                                {% endif %}
+                            </td>
+                            <td data-label="Actions">
+                                <a href="{% url 'edit_student' student.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{% url 'delete_student' student.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">No students available</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Form Validation -->
+    <script>
+        document.getElementById("studentForm").addEventListener("submit", function(event) {
+            // Clear previous errors
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("classError").textContent = "";
+            document.getElementById("photoError").textContent = "";
+            document.getElementById("videoError").textContent = "";
+
+            // Get form values
+            const name = document.querySelector('[name="name"]').value.trim();
+            const studentClass = document.querySelector('[name="student_class"]').value.trim();
+            const photo = document.querySelector('[name="photo"]').files[0];
+            const video = document.querySelector('[name="video"]').files[0];
+
+            let isValid = true;
+
+            // Validate Name
+            if (!name) {
+                document.getElementById("nameError").textContent = "Name is required.";
+                isValid = false;
+            } else if (name.length < 3) {
+                document.getElementById("nameError").textContent = "Name must be at least 3 characters long.";
+                isValid = false;
+            } else if (/\d/.test(name)) {
+                document.getElementById("nameError").textContent = "Name cannot contain numbers.";
+                isValid = false;
+            }
+
+            // Validate Class
+            if (!studentClass) {
+                document.getElementById("classError").textContent = "Class is required.";
+                isValid = false;
+            } else if (!/^\d+$/.test(studentClass)) {
+                document.getElementById("classError").textContent = "Class must be numeric.";
+                isValid = false;
+            }
+
+            // Validate Photo
+            if (!photo) {
+                document.getElementById("photoError").textContent = "Photo is required.";
+                isValid = false;
+            } else {
+                const validPhotoTypes = ['image/jpeg', 'image/png'];
+                if (!validPhotoTypes.includes(photo.type)) {
+                    document.getElementById("photoError").textContent = "Only JPEG and PNG files are allowed for photos.";
+                    isValid = false;
+                }
+                if (photo.size > 2 * 1024 * 1024) {
+                    document.getElementById("photoError").textContent = "Photo size must not exceed 2MB.";
+                    isValid = false;
+                }
+            }
+
+            // Validate Video
+            if (!video) {
+                document.getElementById("videoError").textContent = "Video is required.";
+                isValid = false;
+            } else {
+                const validVideoTypes = ['video/mp4', 'video/mkv', 'video/avi'];
+                if (!validVideoTypes.includes(video.type)) {
+                    document.getElementById("videoError").textContent = "Only MP4, MKV, or AVI files are allowed for videos.";
+                    isValid = false;
+                }
+                if (video.size > 10 * 1024 * 1024) {
+                    document.getElementById("videoError").textContent = "Video size must not exceed 10MB.";
+                    isValid = false;
+                }
+            }
+
+            // Prevent form submission if validation fails
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

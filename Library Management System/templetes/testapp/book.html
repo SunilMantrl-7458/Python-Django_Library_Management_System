@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #e6d5a7;
+            background-image: url('data:image/png;base64,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');
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: rgba(144, 190, 109, 0.8);
+            border-radius: 25px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-label {
+            width: 120px;
+            text-align: right;
+            margin-right: 15px;
+            color: #2c3e50;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.2em;
+        }
+
+        .form-control {
+            flex: 1;
+            background: rgba(108, 152, 132, 0.8) !important;
+            border: none !important;
+            color: white !important;
+            padding: 8px 12px !important;
+            border-radius: 5px !important;
+        }
+
+        .form-control:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .save-book {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .save-book button {
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.1em;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .error {
+            position: absolute;
+            left: 135px;
+            bottom: -20px;
+            color: #721c24;
+            font-size: 0.8em;
+        }
+
+        /* Table Styles */
+        .table-section {
+            background: rgba(144, 190, 109, 0.8);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 40px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 0;
+        }
+
+        .table thead th {
+            background: rgba(74, 103, 65, 0.9);
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 15px;
+            border: none;
+        }
+
+        .table tbody td {
+            background: rgba(255, 255, 255, 0.7);
+            color: #2c3e50;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 12px;
+            border: 1px solid rgba(74, 103, 65, 0.2);
+        }
+
+        .btn-warning, .btn-danger {
+            border: none;
+            padding: 5px 15px;
+            margin: 0 3px;
+            font-family: 'Times New Roman', Times, serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-warning {
+            background: #d4a145;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #c54b4b;
+            color: white;
+        }
+
+        .btn-warning:hover, .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-label {
+                width: 100%;
+                text-align: left;
+                margin-bottom: 5px;
+            }
+
+            .error {
+                left: 0;
+                bottom: -20px;
+            }
+
+            .table-section {
+                padding: 15px;
+            }
+
+            .table-responsive {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Management</h1>
+
+        <!-- Form Section -->
+        <div class="form-section">
+            <form id="bookForm" method="POST" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <div class="error" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" required>
+                    <div class="error" id="authorError"></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Publication</label>
+                    <input type="text" class="form-control" id="publication" name="publication" required>
+                    <div class="error" id="publicationError"></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Year</label>
+                    <input type="number" class="form-control" id="year" name="year" required>
+                    <div class="error" id="yearError"></div>
+                </div>
+               <div class="col text-center">
+                            <button type="submit" class="btn btn-primary">SaveBook</button>
+                        </div>
+            </form>
+        </div>
+
+        <!-- Book List Section -->
+        <div class="table-section">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Publication</th>
+                            <th>Year</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in books %}
+                        <tr>
+                            <td>{{ book.name }}</td>
+                            <td>{{ book.author }}</td>
+                            <td>{{ book.publication }}</td>
+                            <td>{{ book.year }}</td>
+                            <td>
+                                <a href="{% url 'edit_book' book.id %}" class="btn btn-warning">Edit</a>
+                                <a href="{% url 'delete_book' book.id %}" class="btn btn-danger"
+                                   onclick="return confirm('Are you sure you want to delete this book?');">Delete</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center">No books available</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById("bookForm").addEventListener("submit", function(event) {
+            let isValid = true;
+
+            // Reset errors
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("authorError").textContent = "";
+            document.getElementById("publicationError").textContent = "";
+            document.getElementById("yearError").textContent = "";
+
+            // Validate Name
+            const name = document.getElementById("name");
+            if (!name.value || !name.value.match(/^[A-Za-z\s]+$/) || name.value.length <= 3) {
+                isValid = false;
+                document.getElementById("nameError").textContent =
+                    "Please enter a valid name (only letters and spaces, greater than 3 characters).";
+            }
+
+            // Validate Author
+            const author = document.getElementById("author");
+            if (!author.value || !author.value.match(/^[A-Za-z\s]+$/) || author.value.length <= 3) {
+                isValid = false;
+                document.getElementById("authorError").textContent =
+                    "Please enter a valid author name (only letters and spaces, greater than 3 characters).";
+            }
+
+            // Validate Publication
+            const publication = document.getElementById("publication");
+            if (!publication.value || !publication.value.match(/^[A-Za-z\s]+$/) || publication.value.length <= 3) {
+                isValid = false;
+                document.getElementById("publicationError").textContent =
+                    "Please enter a valid publication name (only letters and spaces, greater than 3 characters).";
+            }
+
+            // Validate Year
+            const year = document.getElementById("year");
+            if (!year.value || year.value < 1900 || year.value > 2100) {
+                isValid = false;
+                document.getElementById("yearError").textContent =
+                    "Please enter a valid year between 1900 and 2100.";
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
